@@ -7,6 +7,7 @@ var engine, world;
 var box1, pig1,pig3;
 var backgroundImage,platform;
 var bird, slingshot;
+var score=0
 
 var gameState = "onSling";
 
@@ -48,18 +49,22 @@ function setup(){
 function draw(){
     if(backgroundImage)
     background(backgroundImage);
+    textSize(35)
+    text("score"+score,width-300,50)
     Engine.update(engine);
     //strokeWeight(4);
     box1.display();
     box2.display();
     ground.display();
     pig1.display();
+    pig1.score();
     log1.display();
 
     box3.display();
     box4.display();
     pig3.display();
     log3.display();
+    pig3.score();
 
     box5.display();
     log4.display();
@@ -99,7 +104,7 @@ async function getTime()
     var hour=dt.slice(11,13);
     console.log(hour);
 
-    if  (hour>6&&hour<18)
+    if  (hour>6&&hour<15)
     {
        bg="sprites/bg.png"
     }
